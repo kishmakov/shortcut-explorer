@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .container {
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .box {
+            flex: 1;
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Shortcut Explorer</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Shortcut Explorer</h1>
+        <div class="row">
+            <div id="codesView" class="box"></div>
+            <div class="box">
+                <div class="input-container">
+                    <label for="codeInput">Type a key codes to form a shortcut:</label>
+                    <input type="text" id="codeInput">
+                </div>
+            </div>
+            <div id="codeSuggestions" class="box"></div>
+        </div>
+    </div>
+
+    <script>
+        let daysOfWeek;
+
+        const codesView = document.getElementById("codesView");
+        const codeInput = document.getElementById("codeInput");
+        const codeSuggestions = document.getElementById("codeSuggestions");
+
+        codeInput.addEventListener("input", function () {
+            const inputText = codeInput.value.toLowerCase();
+            const filteredDays = daysOfWeek.filter(day => day.toLowerCase().startsWith(inputText));
+
+            displaySuggestions(filteredDays);
+        });
+
+        function displaySuggestions(suggestedDays) {
+            codeSuggestions.innerHTML = "";
+
+            suggestedDays.forEach(day => {
+                const suggestion = document.createElement("div");
+                suggestion.textContent = "+ " + day;
+                codeSuggestions.appendChild(suggestion);
+
+                suggestion.addEventListener("click", function () {
+                    codeInput.value = "";
+                    codeSuggestions.innerHTML = "";
+
+                    const code = document.createElement("div");
+                    codesView.appendChild(code);
+                    code.textContent = day
+                });
+            });
+        }
+
+        document.addEventListener("click", function (event) {
+            if (event.target !== codeInput && event.target !== codeSuggestions) {
+                codeSuggestions.innerHTML = "";
+            }
+        });                
+
+        // Use the fetch API to make an HTTP request to the URL
+        fetch('https://kishmakov.github.io/shortcut-explorer/codes.json')
+            .then(response => {
+                // Check if the response is successful (status code 200)
+                if (response.ok) {
+                    // Parse the response body as JSON and assign it to the variable
+                    return response.json()
+                        .then(data => {
+                            daysOfWeek = data["codes"];
+                        });
+                } else {
+                    throw new Error('Failed to fetch JSON data');
+                }
+            })
+            .then(() => {
+                // Now, you can access the 'jsonData' variable, which holds the JSON object
+                console.log(jsonData);
+
+                // You can use 'jsonData' as your JavaScript object here
+                // For example, you can access properties like jsonData.someProperty
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+
+</html>
