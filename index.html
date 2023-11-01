@@ -58,7 +58,7 @@
     </div>
 
     <script>
-        let daysOfWeek;
+        let codes;
 
         const codesView = document.getElementById("codesView");
         const codeInput = document.getElementById("codeInput");
@@ -66,26 +66,27 @@
 
         codeInput.addEventListener("input", function () {
             const inputText = codeInput.value.toLowerCase();
-            const filteredDays = daysOfWeek.filter(day => day.toLowerCase().startsWith(inputText));
-
-            displaySuggestions(filteredDays);
+            const filteredCodes = codes.filter(code => 
+                code["aliases"].filter(alias => alias.startsWith(inputText)).length > 0
+            );
+            displaySuggestions(filteredCodes);
         });
 
-        function displaySuggestions(suggestedDays) {
+        function displaySuggestions(codes) {
             codeSuggestions.innerHTML = "";
 
-            suggestedDays.forEach(day => {
+            codes.forEach(code => {
                 const suggestion = document.createElement("div");
-                suggestion.textContent = "+ " + day;
+                suggestion.textContent = "+ " + code["view"];
                 codeSuggestions.appendChild(suggestion);
 
                 suggestion.addEventListener("click", function () {
                     codeInput.value = "";
                     codeSuggestions.innerHTML = "";
 
-                    const code = document.createElement("div");
-                    codesView.appendChild(code);
-                    code.textContent = day
+                    const codeDiv = document.createElement("div");
+                    codesView.appendChild(codeDiv);
+                    codeDiv.textContent = code["view"];
                 });
             });
         }
@@ -94,28 +95,23 @@
             if (event.target !== codeInput && event.target !== codeSuggestions) {
                 codeSuggestions.innerHTML = "";
             }
-        });                
+        });
 
-        // Use the fetch API to make an HTTP request to the URL
+        document.addEventListener("keydown", function (event) {            
+            const keyPressed = event.key;
+            console.log("Key pressed: " + keyPressed);
+        });
+
         fetch('https://kishmakov.github.io/shortcut-explorer/codes.json')
             .then(response => {
-                // Check if the response is successful (status code 200)
                 if (response.ok) {
-                    // Parse the response body as JSON and assign it to the variable
                     return response.json()
                         .then(data => {
-                            daysOfWeek = data["codes"];
+                            codes = data["codes"];
                         });
                 } else {
                     throw new Error('Failed to fetch JSON data');
                 }
-            })
-            .then(() => {
-                // Now, you can access the 'jsonData' variable, which holds the JSON object
-                console.log(jsonData);
-
-                // You can use 'jsonData' as your JavaScript object here
-                // For example, you can access properties like jsonData.someProperty
             })
             .catch(error => {
                 console.error(error);
