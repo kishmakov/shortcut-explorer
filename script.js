@@ -59,9 +59,7 @@ function updateSuggestions() {
 function createSuggest(code) {
     const matchedCode = matchedText(code);
 
-    const keyDiv = document.createElement("div");
-    keyDiv.className = "keystroke";
-    keyDiv.textContent = code["view"];
+    const keyDiv = createKeyDiv(code);
 
     const plusSpan = document.createElement("span");
     plusSpan.classList.add("suggestedText");    
@@ -79,11 +77,8 @@ function createSuggest(code) {
 
     suggestion.addEventListener("click", function () {
         app.elements.input.value = "";
-        app.elements.suggest.innerHTML = "";
-
-        const codeDiv = document.createElement("div");
-        app.elements.view.appendChild(codeDiv);
-        codeDiv.textContent = code["view"];
+        app.elements.suggest.innerHTML = "";        
+        app.elements.view.appendChild(createKeyDiv(code));        
     });
 
     suggestion.addEventListener("mouseover", function () {
@@ -93,6 +88,13 @@ function createSuggest(code) {
     suggestion.addEventListener("mouseout", function () {
         plusSpan.classList.add("hidden");
     });
+}
+
+function createKeyDiv(code) {
+    const keyDiv = document.createElement("div");
+    keyDiv.className = "keystroke";
+    keyDiv.textContent = code["view"];
+    return keyDiv;
 }
 
 function matchedText(code) {

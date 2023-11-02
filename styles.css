@@ -41,6 +41,7 @@ input {
     font-size: 14px;
     font-weight: 400;
     border-radius: 4px;
+    margin-right: 10px;
 }
 
 .green {
@@ -64,8 +65,7 @@ input {
 }
 
 .suggestedText {
-    font-size: 18px;
-    margin-left: 10px;
+    font-size: 18px;    
     margin-right: 10px;
 }
 
