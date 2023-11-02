@@ -23,18 +23,19 @@
 
         {"id": "CapsLock", "view": "CapsLock", "aliases": ["capslock"]},
 
-        {"id": "Backquote", "view": "`", "aliases": ["backquote", "graveaccent"]},
-        {"id": "Quote", "view": "'", "aliases": ["quote", "singlequote"]},
-        {"id": "Comma", "view": ",", "aliases": ["comma"]},
-        {"id": "Period", "view": ".", "aliases": ["period", "dot", "point"]},
+        {"id": "`", "view": "`", "aliases": ["backquote", "graveaccent"]},
+        {"id": "'", "view": "'", "aliases": ["quote", "singlequote"]},
+        {"id": "\"", "view": "\"", "aliases": ["quote", "doublequote"]},
+        {"id": ",", "view": ",", "aliases": ["comma"]},
+        {"id": ".", "view": ".", "aliases": ["period", "dot", "point"]},
 
-        {"id": "Minus", "view": "-", "aliases": ["minus", "dash"]},
-        {"id": "Plus", "view": "+", "aliases": ["plus"]},
+        {"id": "-", "view": "-", "aliases": ["minus", "dash"]},
+        {"id": "+", "view": "+", "aliases": ["plus"]},
 
-        {"id": "Equal", "view": "=", "aliases": ["equal"]},
+        {"id": "=", "view": "=", "aliases": ["equal"]},
 
-        {"id": "BracketLeft", "view": "[", "aliases": ["bracketleft", "leftbracket", "openbracket"]},
-        {"id": "BracketRight", "view": "]", "aliases": ["bracketright", "rightbracket", "closebracket"]},
+        {"id": "[", "view": "[", "aliases": ["bracketleft", "leftbracket", "openbracket"]},
+        {"id": "]", "view": "]", "aliases": ["bracketright", "rightbracket", "closebracket"]},
 
         {"id": "(", "view": "(", "aliases": ["parenthesisleft",  "leftparenthesis", "openparenthesis"]},
         {"id": ")", "view": ")", "aliases": ["parenthesisright", "rightparenthesis", "closeparenthesis"]},
@@ -42,10 +43,11 @@
         {"id": "{", "view": "}", "aliases": ["braceleft",  "leftbrace", "openbrace"]},
         {"id": "}", "view": "{", "aliases": ["braceright", "rightbrace", "closebrace"]},
 
-        {"id": "Slash", "view": "/", "aliases": ["slash", "forwardslash"]},
-        {"id": "Backslash", "view": "\\", "aliases": ["backslash"]},
+        {"id": "/", "view": "/", "aliases": ["slash", "forwardslash"]},
+        {"id": "\\", "view": "\\", "aliases": ["backslash"]},
 
-        {"id": "Semicolon", "view": ";", "aliases": ["semi-colon", "semicolon"]},
+        {"id": ";", "view": ";", "aliases": ["semi-colon", "semicolon"]},
+        {"id": ":", "view": ":", "aliases": ["colon"]},
 
         {"id": "ArrowUp", "view": "↑", "aliases": ["arrowup", "uparrow"]},
         {"id": "ArrowDown", "view": "↓", "aliases": ["arrowdown", "downarrow"]},
