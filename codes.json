@@ -1,7 +1,10 @@
 {
     "codes" : [
-        {"id": "ArrowLeft", "view": "←", "aliases": ["arrowleft"]},
-        
+        {"id": "ArrowUp", "view": "↑", "aliases": ["arrowup", "uparrow"]},
+        {"id": "ArrowDown", "view": "↓", "aliases": ["arrowdown", "downarrow"]},
+        {"id": "ArrowLeft", "view": "←", "aliases": ["arrowleft", "leftarrow"]},
+        {"id": "ArrowRight", "view": "→", "aliases": ["arrowright", "rightarrow"]},
+
         {"id": "KeyA", "view": "A", "aliases": ["a"]},
         {"id": "KeyB", "view": "B", "aliases": ["b"]},
         {"id": "KeyC", "view": "C", "aliases": ["c"]},

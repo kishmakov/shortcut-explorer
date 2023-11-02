@@ -8,6 +8,7 @@ let app = {
         key: null,
         text: ""
     },
+    chosenKeys: new Set(),
     codes: {},
     shortcuts: {}
 };
@@ -36,7 +37,7 @@ app.elements.input.addEventListener("input", function () {
 
 document.addEventListener("click", function (event) {
     if (event.target !== app.elements.input && event.target !== app.elements.suggest) {
-        app.elements.suggest.innerHTML = "";
+        clearInput();
     }
 });
 
@@ -47,8 +48,14 @@ document.addEventListener("keydown", function (event) {
 
 // Logic
 
+function clearInput() {
+    app.elements.input.value = "";
+    app.elements.suggest.innerHTML = "";
+}
+
 function updateSuggestions() {
     const filteredCodes = app.codes.filter(code => {
+        if (app.chosenKeys.has(code["id"])) return false
         if (code["id"] === app.input.key) return true
         if (app.input.text.length == 0) return false
         return code["aliases"].filter(alias => alias.includes(app.input.text)).length > 0
@@ -56,29 +63,44 @@ function updateSuggestions() {
     displaySuggestions(filteredCodes);
 }
 
+function displaySuggestions(codes) {
+    app.elements.suggest.innerHTML = "";
+    codes.forEach(code => createSuggest(code));
+}
+
+function updateShortcut() {
+    app.elements.view.innerHTML = "";
+    app.codes.forEach(code => {
+        if (app.chosenKeys.has(code["id"])) {
+            app.elements.view.appendChild(createKeyDiv(code));
+        }
+    });
+}
+
+
 function createSuggest(code) {
     const matchedCode = matchedText(code);
 
     const keyDiv = createKeyDiv(code);
 
     const plusSpan = document.createElement("span");
-    plusSpan.classList.add("suggestedText");    
+    plusSpan.classList.add("suggestedText");
     plusSpan.classList.add("green");
     plusSpan.classList.add("hidden");
     plusSpan.textContent = "+";
 
-    const suggestion = document.createElement("div");    
+    const suggestion = document.createElement("div");
     if (matchedCode != null) suggestion.appendChild(matchedCode);
     suggestion.appendChild(keyDiv);
-    suggestion.appendChild(plusSpan);    
+    suggestion.appendChild(plusSpan);
 
     suggestion.className = "suggested"
     app.elements.suggest.appendChild(suggestion);
 
     suggestion.addEventListener("click", function () {
-        app.elements.input.value = "";
-        app.elements.suggest.innerHTML = "";        
-        app.elements.view.appendChild(createKeyDiv(code));        
+        clearInput();
+        app.chosenKeys.add(code["id"]);
+        updateShortcut();
     });
 
     suggestion.addEventListener("mouseover", function () {
@@ -100,7 +122,7 @@ function createKeyDiv(code) {
 function matchedText(code) {
     const matchedAliases = code["aliases"].filter(alias => alias.includes(app.input.text));
     if (matchedAliases.length == 0) return null;
-    
+
     const alias = matchedAliases[0];
     const index = alias.indexOf(app.input.text);
 
@@ -120,17 +142,12 @@ function matchedText(code) {
     textSpan.textContent = app.input.text;
     textSpan.className = "blue";
     result.appendChild(textSpan);
-    
+
     if (suffix.length > 0) {
         const suffixSpan = document.createElement("span");
         suffixSpan.textContent = suffix;
         result.appendChild(suffixSpan);
-    }    
-    
-    return result
-}
+    }
 
-function displaySuggestions(codes) {
-    app.elements.suggest.innerHTML = "";
-    codes.forEach(code => createSuggest(code));
+    return result
 }
