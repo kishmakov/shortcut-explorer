@@ -49,6 +49,7 @@ input {
 
 .green_bg {
     background-color: rgba(0, 128, 0, 0.1);
+    cursor: pointer;
 }
 
 .red {
@@ -57,6 +58,7 @@ input {
 
 .red_bg {
     background-color: rgba(255, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .blue {
@@ -67,8 +69,7 @@ input {
     display: flex;
     align-items: center;
     justify-content: left;
-    margin-top: 5px;
-    cursor: pointer;
+    padding-left: 10px;
 }
 
 .suggestedText {
