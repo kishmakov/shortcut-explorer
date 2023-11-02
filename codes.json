@@ -1,5 +1,52 @@
 {
     "codes" : [
+        {"id": "Win", "view": "⊞ Win", "aliases": ["windows"]},
+        {"id": "Control", "view": "⌃ Ctrl", "aliases": ["ctrl", "control"]},
+        {"id": "Meta", "view": "⌘ Cmd", "aliases": ["cmd", "command", "meta"]},
+
+        {"id": "Alt", "view": "Alt | ⌥ Opt", "aliases": ["alt", "opt"]},
+        {"id": "Shift", "view": "⇧ Shift", "aliases": ["shift"]},
+
+        {"id": "Enter", "view": "↩ Enter", "aliases": ["enter"]},
+        {"id": "Tab", "view": "⇥ Tab", "aliases": ["tab"]},
+        {"id": " ", "view": "Space", "aliases": ["space"]},
+        {"id": "Backspace", "view": "⌫ Backspace", "aliases": ["backspace"]},
+
+        {"id": "Escape", "view": "⎋ Esc", "aliases": ["escape"]},
+        {"id": "Insert", "view": "Insert", "aliases": ["insert"]},
+        {"id": "Delete", "view": "Delete", "aliases": ["delete"]},
+        {"id": "End", "view": "↘ End", "aliases": ["end"]},
+        {"id": "Home", "view": "↖ Home", "aliases": ["home"]},
+
+        {"id": "PageUp", "view": "⇞ Pg Up", "aliases": ["pageup"]},
+        {"id": "PageDown", "view": "⇟ Pg Down", "aliases": ["pagedown"]},
+
+        {"id": "CapsLock", "view": "CapsLock", "aliases": ["capslock"]},
+
+        {"id": "Backquote", "view": "`", "aliases": ["backquote", "graveaccent"]},
+        {"id": "Quote", "view": "'", "aliases": ["quote", "singlequote"]},
+        {"id": "Comma", "view": ",", "aliases": ["comma"]},
+        {"id": "Period", "view": ".", "aliases": ["period", "dot", "point"]},
+
+        {"id": "Minus", "view": "-", "aliases": ["minus", "dash"]},
+        {"id": "Plus", "view": "+", "aliases": ["plus"]},
+
+        {"id": "Equal", "view": "=", "aliases": ["equal"]},
+
+        {"id": "BracketLeft", "view": "[", "aliases": ["bracketleft", "leftbracket", "openbracket"]},
+        {"id": "BracketRight", "view": "]", "aliases": ["bracketright", "rightbracket", "closebracket"]},
+
+        {"id": "(", "view": "(", "aliases": ["parenthesisleft",  "leftparenthesis", "openparenthesis"]},
+        {"id": ")", "view": ")", "aliases": ["parenthesisright", "rightparenthesis", "closeparenthesis"]},
+
+        {"id": "{", "view": "}", "aliases": ["braceleft",  "leftbrace", "openbrace"]},
+        {"id": "}", "view": "{", "aliases": ["braceright", "rightbrace", "closebrace"]},
+
+        {"id": "Slash", "view": "/", "aliases": ["slash", "forwardslash"]},
+        {"id": "Backslash", "view": "\\", "aliases": ["backslash"]},
+
+        {"id": "Semicolon", "view": ";", "aliases": ["semi-colon", "semicolon"]},
+
         {"id": "ArrowUp", "view": "↑", "aliases": ["arrowup", "uparrow"]},
         {"id": "ArrowDown", "view": "↓", "aliases": ["arrowdown", "downarrow"]},
         {"id": "ArrowLeft", "view": "←", "aliases": ["arrowleft", "leftarrow"]},
@@ -41,6 +88,19 @@
         {"id": "7", "view": "7", "aliases": ["7"]},
         {"id": "8", "view": "8", "aliases": ["8"]},
         {"id": "9", "view": "9", "aliases": ["9"]},
-        {"id": "0", "view": "0", "aliases": ["0"]}
+        {"id": "0", "view": "0", "aliases": ["0"]},
+
+        {"id": "F1", "view": "f1", "aliases": ["f1"]},
+        {"id": "F2", "view": "f2", "aliases": ["f2"]},
+        {"id": "F3", "view": "f3", "aliases": ["f3"]},
+        {"id": "F4", "view": "f4", "aliases": ["f4"]},
+        {"id": "F5", "view": "f5", "aliases": ["f5"]},
+        {"id": "F6", "view": "f6", "aliases": ["f6"]},
+        {"id": "F7", "view": "f7", "aliases": ["f7"]},
+        {"id": "F8", "view": "f8", "aliases": ["f8"]},
+        {"id": "F9", "view": "f9", "aliases": ["f9"]},
+        {"id": "F10", "view": "f10", "aliases": ["f10"]},
+        {"id": "F11", "view": "f11", "aliases": ["f11"]},
+        {"id": "F12", "view": "f12", "aliases": ["f12"]}
     ]
 }
