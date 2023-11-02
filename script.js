@@ -72,27 +72,27 @@ function updateShortcut() {
     app.elements.view.innerHTML = "";
     app.codes.forEach(code => {
         if (app.chosenKeys.has(code["id"])) {
-            app.elements.view.appendChild(createKeyDiv(code));
+            const shortcutKey = document.createElement("div");
+            shortcutKey.className = "row"
+            shortcutKey.appendChild(createKeyDiv(code));
+            appentHintTo(shortcutKey, "-", "red");
+
+            shortcutKey.addEventListener("click", function () {
+                app.chosenKeys.delete(code["id"]);
+                updateShortcut();
+            });
+
+            app.elements.view.appendChild(shortcutKey);
         }
     });
 }
 
-
 function createSuggest(code) {
-    const matchedCode = matchedText(code);
-
-    const keyDiv = createKeyDiv(code);
-
-    const plusSpan = document.createElement("span");
-    plusSpan.classList.add("suggestedText");
-    plusSpan.classList.add("green");
-    plusSpan.classList.add("hidden");
-    plusSpan.textContent = "+";
-
     const suggestion = document.createElement("div");
-    if (matchedCode != null) suggestion.appendChild(matchedCode);
-    suggestion.appendChild(keyDiv);
-    suggestion.appendChild(plusSpan);
+
+    appendMatchedText(suggestion, code);
+    suggestion.appendChild(createKeyDiv(code));
+    appentHintTo(suggestion, "+", "green");
 
     suggestion.className = "suggested"
     app.elements.suggest.appendChild(suggestion);
@@ -101,14 +101,6 @@ function createSuggest(code) {
         clearInput();
         app.chosenKeys.add(code["id"]);
         updateShortcut();
-    });
-
-    suggestion.addEventListener("mouseover", function () {
-        plusSpan.classList.remove("hidden");
-    });
-
-    suggestion.addEventListener("mouseout", function () {
-        plusSpan.classList.add("hidden");
     });
 }
 
@@ -119,9 +111,9 @@ function createKeyDiv(code) {
     return keyDiv;
 }
 
-function matchedText(code) {
+function appendMatchedText(element, code) {
     const matchedAliases = code["aliases"].filter(alias => alias.includes(app.input.text));
-    if (matchedAliases.length == 0) return null;
+    if (matchedAliases.length == 0) return;
 
     const alias = matchedAliases[0];
     const index = alias.indexOf(app.input.text);
@@ -149,5 +141,23 @@ function matchedText(code) {
         result.appendChild(suffixSpan);
     }
 
-    return result
+    element.appendChild(result);
+}
+
+function appentHintTo(element, text, style) {
+    const plusSpan = document.createElement("span");
+    plusSpan.classList.add("suggestedText");
+    plusSpan.classList.add(style);
+    plusSpan.classList.add("hidden");
+    plusSpan.textContent = text;
+
+    element.addEventListener("mouseover", function () {
+        plusSpan.classList.remove("hidden");
+    });
+
+    element.addEventListener("mouseout", function () {
+        plusSpan.classList.add("hidden");
+    });
+
+    element.appendChild(plusSpan);
 }
