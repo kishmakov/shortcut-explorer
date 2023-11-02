@@ -1,5 +1,7 @@
 {
-    "codes" : [        
+    "codes" : [
+        {"id": "ArrowLeft", "view": "←", "aliases": ["arrowleft"]},
+        
         {"id": "KeyA", "view": "A", "aliases": ["a"]},
         {"id": "KeyB", "view": "B", "aliases": ["b"]},
         {"id": "KeyC", "view": "C", "aliases": ["c"]},
@@ -26,15 +28,16 @@
         {"id": "KeyX", "view": "X", "aliases": ["x"]},
         {"id": "KeyY", "view": "Y", "aliases": ["y"]},
         {"id": "KeyZ", "view": "Z", "aliases": ["z"]},
-        {"id": "Digit1", "view": "1", "aliases": ["1"]},
-        {"id": "Digit2", "view": "2", "aliases": ["2"]},
-        {"id": "Digit3", "view": "3", "aliases": ["3"]},
-        {"id": "Digit4", "view": "4", "aliases": ["4"]},
-        {"id": "Digit5", "view": "5", "aliases": ["5"]},
-        {"id": "Digit6", "view": "6", "aliases": ["6"]},
-        {"id": "Digit7", "view": "7", "aliases": ["7"]},
-        {"id": "Digit8", "view": "8", "aliases": ["8"]},
-        {"id": "Digit9", "view": "9", "aliases": ["9"]},
-        {"id": "Digit0", "view": "0", "aliases": ["0"]}
+
+        {"id": "1", "view": "1", "aliases": ["1"]},
+        {"id": "2", "view": "2", "aliases": ["2"]},
+        {"id": "3", "view": "3", "aliases": ["3"]},
+        {"id": "4", "view": "4", "aliases": ["4"]},
+        {"id": "5", "view": "5", "aliases": ["5"]},
+        {"id": "6", "view": "6", "aliases": ["6"]},
+        {"id": "7", "view": "7", "aliases": ["7"]},
+        {"id": "8", "view": "8", "aliases": ["8"]},
+        {"id": "9", "view": "9", "aliases": ["9"]},
+        {"id": "0", "view": "0", "aliases": ["0"]}
     ]
 }
