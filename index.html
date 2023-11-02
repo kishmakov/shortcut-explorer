@@ -1,71 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <style>
-        body {
-            text-align: center;
-        }
-
-        .container {
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 24px;
-        }
-
-        .row {
-            display: flex;
-        }
-
-        .box {
-            flex: 1;
-            border: 1px solid #000;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .keystroke {
-            border: 1px solid #0000002b;
-            background-color: #00000014;
-            padding: 3px;
-            font-size: 14px;
-            font-weight: 400;
-            border-radius: 4px;
-        }
-
-        .suggested {
-            display: flex;
-            align-items: center;
-            justify-content: left;
-            margin-top: 5px;
-        }
-
-        .suggestedPlus {
-            color: green;
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
-        .suggestedCode {            
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
-        .input-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-        }
-    </style>
+<head>    
     <title>Shortcut Explorer</title>
 </head>
 
@@ -76,7 +12,7 @@
             <div id="viewId" class="box"></div>
             <div class="box">
                 <div class="input-container">
-                    <label for="inputId">Type a key codes to form a shortcut:</label>
+                    <label for="inputId">Press a key or type its code, then click to add it to the shortcut:</label>
                     <input type="text" id="inputId">
                 </div>
             </div>
@@ -84,6 +20,7 @@
         </div>
     </div>
 
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </body>
 

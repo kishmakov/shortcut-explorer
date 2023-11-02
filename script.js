@@ -57,22 +57,24 @@ function updateSuggestions() {
 }
 
 function createSuggest(code) {
-    const plusSpan = document.createElement("span");
-    plusSpan.className = "suggestedPlus";
-    plusSpan.textContent = "+";
-
     const codeSpan = document.createElement("span");
-    codeSpan.className = "suggestedCode";
+    codeSpan.className = "suggestedText";
     codeSpan.textContent = code["id"];
 
     const keyDiv = document.createElement("div");
     keyDiv.className = "keystroke";
     keyDiv.textContent = code["view"];
 
-    const suggestion = document.createElement("div");
-    suggestion.appendChild(plusSpan);
+    const plusSpan = document.createElement("span");
+    plusSpan.classList.add("suggestedText");    
+    plusSpan.classList.add("green");
+    plusSpan.classList.add("hidden");
+    plusSpan.textContent = "+";
+
+    const suggestion = document.createElement("div");    
     suggestion.appendChild(codeSpan);
     suggestion.appendChild(keyDiv);
+    suggestion.appendChild(plusSpan);    
 
     suggestion.className = "suggested"
     app.elements.suggest.appendChild(suggestion);
@@ -84,6 +86,14 @@ function createSuggest(code) {
         const codeDiv = document.createElement("div");
         app.elements.view.appendChild(codeDiv);
         codeDiv.textContent = code["view"];
+    });
+
+    suggestion.addEventListener("mouseover", function () {
+        plusSpan.classList.remove("hidden");
+    });
+
+    suggestion.addEventListener("mouseout", function () {
+        plusSpan.classList.add("hidden");
     });
 }
 
