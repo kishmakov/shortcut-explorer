@@ -51,15 +51,13 @@ function updateSuggestions() {
     const filteredCodes = app.codes.filter(code => {
         if (code["id"] === app.input.key) return true
         if (app.input.text.length == 0) return false
-        return code["aliases"].filter(alias => alias.startsWith(app.input.text)).length > 0
+        return code["aliases"].filter(alias => alias.includes(app.input.text)).length > 0
     });
     displaySuggestions(filteredCodes);
 }
 
 function createSuggest(code) {
-    const codeSpan = document.createElement("span");
-    codeSpan.className = "suggestedText";
-    codeSpan.textContent = code["id"];
+    const matchedCode = matchedText(code);
 
     const keyDiv = document.createElement("div");
     keyDiv.className = "keystroke";
@@ -72,7 +70,7 @@ function createSuggest(code) {
     plusSpan.textContent = "+";
 
     const suggestion = document.createElement("div");    
-    suggestion.appendChild(codeSpan);
+    if (matchedCode != null) suggestion.appendChild(matchedCode);
     suggestion.appendChild(keyDiv);
     suggestion.appendChild(plusSpan);    
 
@@ -95,6 +93,39 @@ function createSuggest(code) {
     suggestion.addEventListener("mouseout", function () {
         plusSpan.classList.add("hidden");
     });
+}
+
+function matchedText(code) {
+    const matchedAliases = code["aliases"].filter(alias => alias.includes(app.input.text));
+    if (matchedAliases.length == 0) return null;
+    
+    const alias = matchedAliases[0];
+    const index = alias.indexOf(app.input.text);
+
+    const prefix = alias.substring(0, index)
+    const suffix = alias.substring(index + app.input.text.length)
+
+    const result = document.createElement("p");
+    result.className = "suggestedText";
+
+    if (prefix.length > 0) {
+        const prefixSpan = document.createElement("span");
+        prefixSpan.textContent = prefix;
+        result.appendChild(prefixSpan);
+    }
+
+    const textSpan = document.createElement("span");
+    textSpan.textContent = app.input.text;
+    textSpan.className = "blue";
+    result.appendChild(textSpan);
+    
+    if (suffix.length > 0) {
+        const suffixSpan = document.createElement("span");
+        suffixSpan.textContent = suffix;
+        result.appendChild(suffixSpan);
+    }    
+    
+    return result
 }
 
 function displaySuggestions(codes) {
