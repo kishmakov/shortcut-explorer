@@ -73,10 +73,9 @@ function updateShortcut() {
     app.codes.forEach(code => {
         if (app.chosenKeys.has(code["id"])) {
             const shortcutKey = document.createElement("div");
-            shortcutKey.className = "row"
             shortcutKey.appendChild(createKeyDiv(code));
-            appentHintTo(shortcutKey, "-", "red");
-
+            appentHintTo(shortcutKey, "-", "red", "red_bg");
+            shortcutKey.className = "row"
             shortcutKey.addEventListener("click", function () {
                 app.chosenKeys.delete(code["id"]);
                 updateShortcut();
@@ -92,7 +91,7 @@ function createSuggest(code) {
 
     appendMatchedText(suggestion, code);
     suggestion.appendChild(createKeyDiv(code));
-    appentHintTo(suggestion, "+", "green");
+    appentHintTo(suggestion, "+", "green", "green_bg");
 
     suggestion.className = "suggested"
     app.elements.suggest.appendChild(suggestion);
@@ -144,7 +143,7 @@ function appendMatchedText(element, code) {
     element.appendChild(result);
 }
 
-function appentHintTo(element, text, style) {
+function appentHintTo(element, text, style, style_bg) {
     const plusSpan = document.createElement("span");
     plusSpan.classList.add("suggestedText");
     plusSpan.classList.add(style);
@@ -153,10 +152,12 @@ function appentHintTo(element, text, style) {
 
     element.addEventListener("mouseover", function () {
         plusSpan.classList.remove("hidden");
+        element.classList.add(style_bg);
     });
 
     element.addEventListener("mouseout", function () {
         plusSpan.classList.add("hidden");
+        element.classList.remove(style_bg);
     });
 
     element.appendChild(plusSpan);
