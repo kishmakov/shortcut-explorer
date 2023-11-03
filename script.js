@@ -2,10 +2,15 @@ let app = {
     elements: {
         view: document.getElementById("viewId"),
         input: document.getElementById("inputId"),
-        suggest: document.getElementById("suggestId")
+        suggest: document.getElementById("suggestId"),
+
+        os: document.getElementById("osId"),
+        ide: document.getElementById("ideId"),
+        browser: document.getElementById("browserId")
     },
     input: {
         key: null,
+        code: null,
         text: ""
     },
     chosenKeys: new Set(),
@@ -20,8 +25,25 @@ fetch('codes.json')
         if (response.ok) {
             const data = await response.json();
             app.codes = data["codes"];
+            app.codes.forEach(code => {
+                code["key"] = code["key"].toLowerCase();
+            });
+
         } else {
             throw new Error('Failed to fetch "codes.json"');
+        }
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+
+fetch('shortcuts.json')
+    .then(async response => {
+        if (response.ok) {
+            app.shortcuts = await response.json();
+        } else {
+            throw new Error('Failed to fetch "shortcuts.json"');
         }
     })
     .catch(error => {
@@ -42,7 +64,8 @@ document.addEventListener("click", function (event) {
 });
 
 document.addEventListener("keydown", function (event) {
-    app.input.key = event.key;
+    app.input.key = event.key.toLowerCase();
+    app.input.code = event.code;
     updateSuggestions();
 });
 
@@ -54,13 +77,19 @@ function clearInput() {
 }
 
 function updateSuggestions() {
-    const filteredCodes = app.codes.filter(code => {
-        if (app.chosenKeys.has(code["id"])) return false
-        if (code["id"] === app.input.key) return true
+    const codeMatch = app.codes.filter(code => {
+        if (app.chosenKeys.has(code["key"])) return false
+        return code["key"] === app.input.key;
+    });
+
+    const aliasMatch = app.codes.filter(code => {
+        if (app.chosenKeys.has(code["key"])) return false
+        if (code["key"] === app.input.key) return false
         if (app.input.text.length == 0) return false
         return code["aliases"].filter(alias => alias.includes(app.input.text)).length > 0
     });
-    displaySuggestions(filteredCodes);
+
+    displaySuggestions(codeMatch.concat(aliasMatch));
 }
 
 function displaySuggestions(codes) {
@@ -71,19 +100,21 @@ function displaySuggestions(codes) {
 function updateShortcut() {
     app.elements.view.innerHTML = "";
     app.codes.forEach(code => {
-        if (app.chosenKeys.has(code["id"])) {
+        if (app.chosenKeys.has(code["key"])) {
             const shortcutKey = document.createElement("div");
             shortcutKey.appendChild(createKeyDiv(code));
             appentHintTo(shortcutKey, "-", "red", "red_bg");
             shortcutKey.className = "row"
             shortcutKey.addEventListener("click", function () {
-                app.chosenKeys.delete(code["id"]);
+                app.chosenKeys.delete(code["key"]);
                 updateShortcut();
             });
 
             app.elements.view.appendChild(shortcutKey);
         }
     });
+
+    displayFoundShortcuts(app.elements.browser, app.shortcuts["Browser"], "No browser claiming this shortcut found.");
 }
 
 function createSuggest(code) {
@@ -98,7 +129,7 @@ function createSuggest(code) {
 
     suggestion.addEventListener("click", function () {
         clearInput();
-        app.chosenKeys.add(code["id"]);
+        app.chosenKeys.add(code["key"]);
         updateShortcut();
     });
 }
@@ -161,4 +192,31 @@ function appentHintTo(element, text, style, style_bg) {
     });
 
     element.appendChild(plusSpan);
+}
+
+function sameSets(set, array) {
+    if (set.size != array.length) return false
+}
+
+function displayFoundShortcuts(element, shortcuts, stubText) {
+    element.innerHTML = ""
+
+    if (app.chosenKeys.size == 0) return
+
+    let found = false
+
+    shortcuts.forEach(shortcut => {
+        if (sameSets(app.chosenKeys, shortcut["keys"])) {
+            const item = document.createElement("div");
+            item.textContent = shortcut["name"];
+            element.appendChild(item);
+            found = true
+        }
+    });
+
+    if (!found) {
+        const item = document.createElement("div");
+        item.textContent = stubText;
+        element.appendChild(item);
+    }
 }

@@ -1,0 +1,9 @@
+{
+    "OS" : [
+    ],
+    "IDE": [
+    ],
+    "Browser" : [
+        {"keys": ["Control", "P"], "name": "Mozilla Firefox"}
+    ]
+}
