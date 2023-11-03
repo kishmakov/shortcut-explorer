@@ -4,6 +4,12 @@
     "IDE": [
     ],
     "Browser" : [
-        {"keys": ["Control", "P"], "name": "Mozilla Firefox"}
+        {
+            "keys": ["Control", "P"],
+            "name": "Mozilla Firefox",
+            "platforms": ["Linux", "Windows"],
+            "from": "90.0",
+            "to": "latest"
+        }
     ]
 }

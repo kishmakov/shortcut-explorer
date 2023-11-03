@@ -216,9 +216,7 @@ function displayFoundShortcuts(element, categoryId, category) {
 
     shortcuts.forEach(shortcut => {
         if (sameSets(app.chosenKeys, shortcut["keys"])) {
-            const item = document.createElement("div");
-            item.textContent = shortcut["name"];
-            element.appendChild(item);
+            element.appendChild(createOccurrence(shortcut));
             found = true
         }
     });
@@ -229,4 +227,34 @@ function displayFoundShortcuts(element, categoryId, category) {
         item.className = "grey"
         element.appendChild(item);
     }
+}
+
+function createOccurrence(shortcut) {
+    const div = document.createElement("div");
+    const occurrence = document.createElement("p");
+
+    const name = document.createElement("span");
+    name.textContent = shortcut["name"];
+    occurrence.appendChild(name);
+
+    if (shortcut["platforms"] != null) {
+        shortcut["platforms"].forEach(platform => {
+            const plname = document.createElement("span");
+            plname.textContent = " @" + platform
+            plname.classList.add("grey");
+            plname.classList.add("note");
+            occurrence.appendChild(plname);
+        });
+    }
+
+    if (shortcut["from"] != null || shortcut["to"] != null) {
+        const from = shortcut["from"] ? shortcut["from"] : " ";
+        const to = shortcut["to"] ? shortcut["to"] : " ";
+        const range = document.createElement("span");
+        range.textContent = " (" + from + " \u2014 " + to + ")";
+        occurrence.appendChild(range);
+    }
+
+    div.appendChild(occurrence);
+    return div;
 }

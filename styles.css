@@ -65,11 +65,13 @@ input {
     color: blue;
 }
 
-
 .grey {
     color: grey;
 }
 
+.note {
+    font-size: 80%;
+}
 
 .suggested {
     display: flex;
