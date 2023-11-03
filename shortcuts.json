@@ -30,6 +30,30 @@
         }
     ],
     "IDE": [
+        {
+            "keys": ["Control", "X"],
+            "name": "VSCode",
+            "platforms": ["Linux", "Windows"],
+            "from": "1.50",
+            "to": "latest",
+            "info": "Cut line (empty selection)."
+        },
+        {
+            "keys": ["Control", "C"],
+            "name": "VSCode",
+            "platforms": ["Linux", "Windows"],
+            "from": "1.50",
+            "to": "latest",
+            "info": "Copy line (empty selection)."
+        },
+        {
+            "keys": ["Control", "P"],
+            "name": "VSCode",
+            "platforms": ["Linux", "Windows"],
+            "from": "1.50",
+            "to": "latest",
+            "info": "Paste."
+        }
     ],
     "Browser" : [
         {
