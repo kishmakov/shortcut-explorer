@@ -6,63 +6,356 @@
             "from": "10.12",
             "to": "latest",
             "info": "Switch to the next most recently used app among your open apps."
-        },
-        {
-            "keys": ["Alt", "Tab"],
-            "name": "Ubuntu Linux",
-            "from": "6.10",
+        }, {
+            "keys": ["Meta", " "],
+            "name": "macOS",
+            "from": "10.12",
             "to": "latest",
-            "info": "Switch between windows."
-        },
-        {
-            "keys": ["Alt", "Tab"],
-            "name": "Windows",
-            "from": "98",
-            "to": "latest",
-            "info": "Switch between open apps."
-        },
-        {
+            "info": "Show or hide the Spotlight search field."
+        }, {
             "keys": ["Meta", "Control", "Q"],
             "name": "macOS",
             "from": "10.12",
             "to": "latest",
             "info": "Immediately lock your screen."
+        }, {
+            "keys": ["Alt", "Tab"],
+            "name": "Ubuntu Linux",
+            "from": "6.10",
+            "to": "latest",
+            "info": "Switch between windows."
+        }, {
+            "keys": ["Alt", "Tab"],
+            "name": "Windows",
+            "from": "98",
+            "to": "latest",
+            "info": "Switch between open apps."
         }
     ],
     "IDE": [
         {
+            "keys": ["Control", " "],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Basic code completion (the name of any class, method or variable)."
+        }, {
+            "keys": ["Control", "Shift", " "],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Smart code completion (filters the list of methods and variables by expected type)."
+        }, {
+            "keys": ["Control", "Shift", "Enter"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Complete statement."
+        }, {
+            "keys": ["Meta", "Shift", "Enter"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Complete statement."
+        }, {
+            "keys": ["Control", "P"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Parameter info (within method call arguments)."
+        }, {
+            "keys": ["Meta", "P"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Parameter info (within method call arguments)."
+        }, {
+            "keys": ["Control", "Q"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Quick documentation lookup."
+        }, {
+            "keys": ["F1"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Quick documentation lookup."
+        }, {
+            "keys": ["Shift", "F1"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "External Doc."
+        }, {
+            "keys": ["Control", "F1"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Show descriptions of error or warning at caret."
+        }, {
+            "keys": ["Meta", "F1"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Show descriptions of error or warning at caret."
+        }, {
+            "keys": ["Alt", "Insert"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Generate code (Getters, Setters, Constructors, hashCode/equals, toString)."
+        }, {
+            "keys": ["Meta", "N"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Generate code (Getters, Setters, Constructors, hashCode/equals, toString)."
+        }, {
+            "keys": ["Control", "O"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Override methods."
+        }, {
+            "keys": ["Control", "I"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Implement methods."
+        }, {
+            "keys": ["Control", "Alt", "T"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Surround with (if..else, try..catch, for, synchronized, etc.)."
+        }, {
+            "keys": ["Meta", "Alt", "T"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Surround with (if..else, try..catch, for, synchronized, etc.)."
+        }, {
+            "keys": ["Control", "/"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Comment/uncomment with line comment."
+        }, {
+            "keys": ["Meta", "/"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Comment/uncomment with line comment."
+        }, {
+            "keys": ["Control", "Shift", "/"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Comment/uncomment with block comment."
+        }, {
+            "keys": ["Meta", "Alt", "/"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Comment/uncomment with block comment."
+        }, {
+            "keys": ["Control", "W"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Select successively increasing code blocks."
+        }, {
+            "keys": ["Alt", "ArrowUp"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Select successively increasing code blocks."
+        }, {
+            "keys": ["Control", "Shift", "W"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Decrease current selection to previous state."
+        }, {
+            "keys": ["Alt", "ArrowDown"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Decrease current selection to previous state."
+        }, {
+            "keys": ["Alt", "Q"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Context info."
+        }, {
+            "keys": ["Control", "Shift", "Q"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Context info."
+        }, {
+            "keys": ["Alt", "Enter"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Show intention actions and quick-fixes."
+        }, {
+            "keys": ["Control", "Alt", "L"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Reformat code."
+        }, {
+            "keys": ["Meta", "Alt", "L"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Reformat code."
+        }, {
+            "keys": ["Control", "Alt", "O"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Optimize imports."
+        }, {
+            "keys": ["Control", "Alt", "I"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Auto-indent line(s)."
+        }, {
+            "keys": ["Tab"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Indent selected lines."
+        }, {
+            "keys": ["Shift", "Tab"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS", "Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Unindent selected lines."
+        }, {
+            "keys": ["Control", "X"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Cut current line or selected block to clipboard."
+        }, {
+            "keys": ["Meta", "X"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Cut current line or selected block to clipboard."
+        }, {
+            "keys": ["Control", "C"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Copy current line or selected block to clipboard."
+        }, {
+            "keys": ["Meta", "C"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Copy current line or selected block to clipboard."
+        }, {
+            "keys": ["Control", "V"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Paste from clipboard."
+        }, {
+            "keys": ["Meta", "V"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Paste from clipboard."
+        }, {
+            "keys": ["Control", "Shift", "V"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Paste from recent buffers."
+        }, {
+            "keys": ["Meta", "Shift", "V"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Paste from recent buffers."
+        }, {
             "keys": ["Control", "Shift", "A"],
             "name": "IntelliJ IDEA",
             "platforms": ["Linux", "Windows"],
             "from": "2018.1",
             "to": "latest",
             "info": "Find action."
-        },
-        {
+        }, {
             "keys": ["Meta", "Shift", "A"],
             "name": "IntelliJ IDEA",
             "platforms": ["macOS"],
             "from": "2018.1",
             "to": "latest",
             "info": "Find action."
-        },
-        {
+        }, {
             "keys": ["Control", "X"],
             "name": "VSCode",
             "platforms": ["Linux", "Windows"],
             "from": "1.50",
             "to": "latest",
             "info": "Cut line (empty selection)."
-        },
-        {
+        }, {
             "keys": ["Control", "C"],
             "name": "VSCode",
             "platforms": ["Linux", "Windows"],
             "from": "1.50",
             "to": "latest",
             "info": "Copy line (empty selection)."
-        },
-        {
+        }, {
             "keys": ["Control", "P"],
             "name": "VSCode",
             "platforms": ["Linux", "Windows"],
