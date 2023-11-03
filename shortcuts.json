@@ -1,5 +1,33 @@
 {
     "OS" : [
+        {
+            "keys": ["Meta", "Tab"],
+            "name": "macOS",
+            "from": "10.12",
+            "to": "latest",
+            "info": "Switch to the next most recently used app among your open apps."
+        },
+        {
+            "keys": ["Alt", "Tab"],
+            "name": "Ubuntu Linux",
+            "from": "6.10",
+            "to": "latest",
+            "info": "Switch between windows."
+        },
+        {
+            "keys": ["Alt", "Tab"],
+            "name": "Windows",
+            "from": "98",
+            "to": "latest",
+            "info": "Switch between open apps."
+        },
+        {
+            "keys": ["Meta", "Control", "Q"],
+            "name": "macOS",
+            "from": "10.12",
+            "to": "latest",
+            "info": "Immediately lock your screen."
+        }
     ],
     "IDE": [
     ],
@@ -9,7 +37,8 @@
             "name": "Mozilla Firefox",
             "platforms": ["Linux", "Windows"],
             "from": "90.0",
-            "to": "latest"
+            "to": "latest",
+            "info": "Print current page."
         }
     ]
 }

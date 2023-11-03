@@ -256,5 +256,14 @@ function createOccurrence(shortcut) {
     }
 
     div.appendChild(occurrence);
+
+    if (shortcut["info"] != null) {
+        const info = document.createElement("p");
+        info.classList.add("grey");
+        info.classList.add("note");
+        info.textContent = shortcut["info"];
+        div.appendChild(info);
+    }
+
     return div;
 }
