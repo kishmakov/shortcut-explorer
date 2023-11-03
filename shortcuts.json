@@ -31,6 +31,22 @@
     ],
     "IDE": [
         {
+            "keys": ["Control", "Shift", "A"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["Linux", "Windows"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Find action."
+        },
+        {
+            "keys": ["Meta", "Shift", "A"],
+            "name": "IntelliJ IDEA",
+            "platforms": ["macOS"],
+            "from": "2018.1",
+            "to": "latest",
+            "info": "Find action."
+        },
+        {
             "keys": ["Control", "X"],
             "name": "VSCode",
             "platforms": ["Linux", "Windows"],
