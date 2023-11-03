@@ -103,7 +103,7 @@ function updateShortcut() {
         if (app.chosenKeys.has(code["key"])) {
             const shortcutKey = document.createElement("div");
             shortcutKey.appendChild(createKeyDiv(code));
-            appentHintTo(shortcutKey, "-", "red", "red_bg");
+            appentHintTo(shortcutKey, "-", "red", "red-bg");
             shortcutKey.className = "row"
             shortcutKey.addEventListener("click", function () {
                 app.chosenKeys.delete(code["key"]);
@@ -122,7 +122,7 @@ function createSuggest(code) {
 
     appendMatchedText(suggestion, code);
     suggestion.appendChild(createKeyDiv(code));
-    appentHintTo(suggestion, "+", "green", "green_bg");
+    appentHintTo(suggestion, "+", "green", "green-bg");
 
     suggestion.className = "suggested"
     app.elements.suggest.appendChild(suggestion);
@@ -152,7 +152,7 @@ function appendMatchedText(element, code) {
     const suffix = alias.substring(index + app.input.text.length)
 
     const result = document.createElement("p");
-    result.className = "suggestedText";
+    result.className = "suggested-text";
 
     if (prefix.length > 0) {
         const prefixSpan = document.createElement("span");
@@ -176,7 +176,7 @@ function appendMatchedText(element, code) {
 
 function appentHintTo(element, text, style, style_bg) {
     const plusSpan = document.createElement("span");
-    plusSpan.classList.add("suggestedText");
+    plusSpan.classList.add("suggested-text");
     plusSpan.classList.add(style);
     plusSpan.classList.add("hidden");
     plusSpan.textContent = text;

@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-margin: 0 auto;
+    margin: 0 auto;
 }
 
 h1 {
@@ -47,7 +47,7 @@ input {
     color: green;
 }
 
-.green_bg {
+.green-bg {
     background-color: rgba(0, 128, 0, 0.1);
     cursor: pointer;
 }
@@ -56,7 +56,7 @@ input {
     color: red;
 }
 
-.red_bg {
+.red-bg {
     background-color: rgba(255, 0, 0, 0.1);
     cursor: pointer;
 }
@@ -72,7 +72,7 @@ input {
     padding-left: 10px;
 }
 
-.suggestedText {
+.suggested-text {
     font-size: 18px;
     margin-right: 10px;
 }
