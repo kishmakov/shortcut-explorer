@@ -234,6 +234,26 @@
             "from": "2018.1", "to": "latest",
             "info": "Paste from recent buffers."
         }, {
+            "keys": ["Control", "D"],
+            "name": "IntelliJ IDEA", "platforms": ["Linux", "Windows"],
+            "from": "2018.1", "to": "latest",
+            "info": "Duplicate current line or selected block."
+        }, {
+            "keys": ["Meta", "D"],
+            "name": "IntelliJ IDEA", "platforms": ["macOS"],
+            "from": "2018.1", "to": "latest",
+            "info": "Duplicate current line or selected block."
+        }, {
+            "keys": ["Control", "Y"],
+            "name": "IntelliJ IDEA", "platforms": ["Linux", "Windows"],
+            "from": "2018.1", "to": "latest",
+            "info": "Delete line at caret."
+        }, {
+            "keys": ["Meta", "Backspace"],
+            "name": "IntelliJ IDEA", "platforms": ["macOS"],
+            "from": "2018.1", "to": "latest",
+            "info": "Delete line at caret."
+        }, {
             "keys": ["Control", "Shift", "A"],
             "name": "IntelliJ IDEA", "platforms": ["Linux", "Windows"],
             "from": "2018.1", "to": "latest",
@@ -254,10 +274,15 @@
             "from": "1.50", "to": "latest",
             "info": "Copy line (empty selection)."
         }, {
-            "keys": ["Control", "P"],
+            "keys": ["Control", "V"],
             "name": "VSCode", "platforms": ["Linux", "Windows"],
             "from": "1.50", "to": "latest",
             "info": "Paste."
+        }, {
+            "keys": ["Control", "P"],
+            "name": "VSCode", "platforms": ["Linux", "Windows"],
+            "from": "1.50", "to": "latest",
+            "info": "Go to File, Quick Open."
         }
     ],
     "Browser" : [
