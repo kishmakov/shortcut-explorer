@@ -65,6 +65,12 @@ input {
     color: blue;
 }
 
+
+.grey {
+    color: grey;
+}
+
+
 .suggested {
     display: flex;
     align-items: center;

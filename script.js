@@ -116,7 +116,9 @@ function updateShortcut() {
         }
     });
 
-    displayFoundShortcuts(app.elements.browser, app.shortcuts["Browser"], "No browser claiming this shortcut found.");
+    displayFoundShortcuts(app.elements.browser, "Browser", "browser");
+    displayFoundShortcuts(app.elements.ide, "IDE", "IDE");
+    displayFoundShortcuts(app.elements.os, "OS", "operating system");
 }
 
 function createSuggest(code) {
@@ -198,9 +200,12 @@ function appentHintTo(element, text, style, backgroundStyl) {
 
 function sameSets(set, array) {
     if (set.size != array.length) return false
+    return array.filter(code => set.has(code.toLowerCase())).length == set.size;
 }
 
-function displayFoundShortcuts(element, shortcuts, stubText) {
+function displayFoundShortcuts(element, categoryId, category) {
+    shortcuts = app.shortcuts[categoryId]
+    stubText = "No " + category + " claiming this shortcut found."
     element.innerHTML = ""
     app.elements.separator.classList.add("hidden")
 
@@ -221,6 +226,7 @@ function displayFoundShortcuts(element, shortcuts, stubText) {
     if (!found) {
         const item = document.createElement("div");
         item.textContent = stubText;
+        item.className = "grey"
         element.appendChild(item);
     }
 }
