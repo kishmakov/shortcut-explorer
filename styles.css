@@ -77,6 +77,14 @@ input {
     margin-right: 10px;
 }
 
+.line-container {
+    width: 90%;
+}
+
+.horizontal-line {
+    border-top: 1px solid #00000040;
+}
+
 .hidden {
     display: none;
 }

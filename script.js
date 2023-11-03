@@ -4,6 +4,8 @@ let app = {
         input: document.getElementById("inputId"),
         suggest: document.getElementById("suggestId"),
 
+        separator: document.getElementById("separatorId"),
+
         os: document.getElementById("osId"),
         ide: document.getElementById("ideId"),
         browser: document.getElementById("browserId")
@@ -174,7 +176,7 @@ function appendMatchedText(element, code) {
     element.appendChild(result);
 }
 
-function appentHintTo(element, text, style, style_bg) {
+function appentHintTo(element, text, style, backgroundStyl) {
     const plusSpan = document.createElement("span");
     plusSpan.classList.add("suggested-text");
     plusSpan.classList.add(style);
@@ -183,12 +185,12 @@ function appentHintTo(element, text, style, style_bg) {
 
     element.addEventListener("mouseover", function () {
         plusSpan.classList.remove("hidden");
-        element.classList.add(style_bg);
+        element.classList.add(backgroundStyl);
     });
 
     element.addEventListener("mouseout", function () {
         plusSpan.classList.add("hidden");
-        element.classList.remove(style_bg);
+        element.classList.remove(backgroundStyl);
     });
 
     element.appendChild(plusSpan);
@@ -200,9 +202,11 @@ function sameSets(set, array) {
 
 function displayFoundShortcuts(element, shortcuts, stubText) {
     element.innerHTML = ""
+    app.elements.separator.classList.add("hidden")
 
     if (app.chosenKeys.size == 0) return
 
+    app.elements.separator.classList.remove("hidden")
     let found = false
 
     shortcuts.forEach(shortcut => {
