@@ -283,6 +283,16 @@
             "name": "VSCode", "platforms": ["Linux", "Windows"],
             "from": "1.50", "to": "latest",
             "info": "Go to File, Quick Open."
+        }, {
+            "keys": ["Control", "`"],
+            "name": "VSCode", "platforms": ["Linux", "Windows", "macOS"],
+            "from": "1.50", "to": "latest",
+            "info": "Toggle the terminal panel."
+        }, {
+            "keys": ["Control", "Shift", "`"],
+            "name": "VSCode", "platforms": ["Linux", "Windows", "macOS"],
+            "from": "1.50", "to": "latest",
+            "info": "Create a new terminal."
         }
     ],
     "Browser" : [
