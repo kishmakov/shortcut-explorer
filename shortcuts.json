@@ -301,6 +301,24 @@
             "name": "Mozilla Firefox", "platforms": ["Linux", "Windows"],
             "from": "90.0", "to": "latest",
             "info": "Print current page."
+        },
+        {
+            "keys": ["Meta", "Alt", "I"],
+            "name": "Mozilla Firefox", "platforms": ["macOS"],
+            "from": "90.0", "to": "latest",
+            "info": "Open developer tools."
+        },
+        {
+            "keys": ["Control", "Shift", "I"],
+            "name": "Mozilla Firefox", "platforms": ["Linux", "Windows"],
+            "from": "90.0", "to": "latest",
+            "info": "Open developer tools."
+        },
+        {
+            "keys": ["F12"],
+            "name": "Mozilla Firefox", "platforms": ["Linux", "Windows", "macOS"],
+            "from": "90.0", "to": "latest",
+            "info": "Open developer tools."
         }
     ]
 }
